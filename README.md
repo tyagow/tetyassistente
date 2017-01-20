@@ -9,17 +9,19 @@ Projeto Base
 3. Ative o Virtualenv.
 4. Instale as dependencias.
 5. Configure a instancia com o .env
-6. Roda o collectstatic para configurar arquivos staticos
-7. Execute os testes.
+6. Migre seus modelos para o Banco de Dados
+7. Roda o collectstatic para configurar arquivos staticos
+8. Execute os testes.
 
 ```console
-git clone 
+git clone https://github.com/tyagow/django-base.git Nome-Do-Projeto
 cd 
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp contrib/env-sample .env
 python manage.py collectstatic
+python manage.py migrate
 python manage.py test
 python manage.py runserver
 ```
