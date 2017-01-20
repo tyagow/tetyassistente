@@ -28,6 +28,15 @@ python manage.py runserver
 
 ## Como fazer deploy ?
 
+* Under Contruction
+
+## Features
+
+* Bootstrap 3.3.7
+* Python Decouple
+* DJ Static (serving static files locally)
+* Dj Database URL 
+* Django test without migrations
 
 **NOTES**
 
