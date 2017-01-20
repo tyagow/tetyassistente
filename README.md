@@ -33,6 +33,7 @@ python manage.py runserver
 ## Features
 
 * Bootstrap 3.3.7
+* JQuery 3.1.1
 * Python Decouple
 * DJ Static (serving static files locally)
 * Dj Database URL 
