@@ -32,12 +32,15 @@ python manage.py runserver
 
 ## Features
 
+* Django 1.10.5
 * Bootstrap 3.3.7
 * JQuery 3.1.1
 * Python Decouple
 * DJ Static (serving static files locally)
 * Dj Database URL 
 * Django test without migrations
+* Django Crispy Forms
+* Basic User Login App
 
 **NOTES**
 

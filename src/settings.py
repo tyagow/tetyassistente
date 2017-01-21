@@ -40,8 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Project app
+
+    # Project apps
     'src.core',
+    'src.accounts',
+
+    # app de terceiros
+    'crispy_forms',
 ]
 
 MIDDLEWARE_CLASSES = [
