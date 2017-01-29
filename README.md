@@ -40,7 +40,7 @@ python manage.py runserver
 10. Set SECRET_KEY in dokku
 11. Set ALLOWED_HOSTS in dokku
 12. Set Global Domain dor dokku
-11. Push your code to dokku
+13. Push your code to dokku
 
 ```console
 (local) cat ~/.ssh/id_rsa.pub | ssh root@<your.ip.address> "sudo sshcommand acl-add dokku [description]"
