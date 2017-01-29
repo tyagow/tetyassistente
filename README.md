@@ -26,7 +26,7 @@ python manage.py test
 python manage.py runserver
 ```
 
-## Como fazer deploy ?
+## Como fazer primeiro deploy ?
 
 1. Install Digital Ocean Dokku image
 2. Send your ssh-key to dokku
@@ -56,9 +56,12 @@ python manage.py runserver
 (local) ssh dokku@<your.ip.address> config:set <app-name> ALLOWED_HOSTS=<app-name>.<your.ip.address>.xip.io
 (local) ssh dokku@<your.ip.address> domains:add-global <your.ip.address>.xip.io
 (local) git push dokku master
-
- 
 ```
+**NOTES**
+* Depois do primeiro deploy feito basta um comando para o deploy:
+`git push dokku master`
+* Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
+`ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
 
 ## Features
 
@@ -73,6 +76,3 @@ python manage.py runserver
 * Basic User Login App
 * Django Extensions
 * Dokku pre configured
-
-**NOTES**
-
