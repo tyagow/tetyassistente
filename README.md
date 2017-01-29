@@ -28,7 +28,37 @@ python manage.py runserver
 
 ## Como fazer deploy ?
 
-* Under Contruction
+1. Install Digital Ocean Dokku image
+2. Send your ssh-key to dokku
+3. Connect via ssh to your server
+4. Create app in dokku 
+5. Install postgres plugin in dokku 
+6. Create database for your app in dokku
+7. Link database and app in dokku
+8. Set DEBUG in dokku 
+9. Generate new SECRET_KEY
+10. Set SECRET_KEY in dokku
+11. Set ALLOWED_HOSTS in dokku
+12. Set Global Domain dor dokku
+11. Push your code to dokku
+
+```console
+(local) cat ~/.ssh/id_rsa.pub | ssh root@<your.ip.address> "sudo sshcommand acl-add dokku [description]"
+(local) ssh root@<your.ip.address>
+(server) dokku apps:create <app-name>
+(server) sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
+(server) dokku postgres:create <database-name>
+(server) dokku postgres:link <databse-name> <app-name>
+(local) git remote add dokku dokku@dokku.me:<app-name>
+(local) ssh dokku@<your.ip.address> config:set <app-name> DEBUG=False
+(local) python contrib/secret_gen.py
+(local) ssh dokku@<your.ip.address> config:set <app-name> SECRET_KEY='<new-generated-key>'
+(local) ssh dokku@<your.ip.address> config:set <app-name> ALLOWED_HOSTS=<app-name>.<your.ip.address>.xip.io
+(local) ssh dokku@<your.ip.address> domains:add-global <your.ip.address>.xip.io
+(local) git push dokku master
+
+ 
+```
 
 ## Features
 
@@ -41,6 +71,8 @@ python manage.py runserver
 * Django test without migrations
 * Django Crispy Forms
 * Basic User Login App
+* Django Extensions
+* Dokku pre configured
 
 **NOTES**
 
