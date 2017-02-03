@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Reclama Paraguai{% endblock %}</title>
+    <title>{% block title %}Projeto Base{% endblock %}</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -21,15 +21,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="{% static 'js/main.js' %}"></script>
-    {% block script %}{% endblock %}
 </head>
 
 <body>
 {% block  navbar %}
-{% include 'nav.html' %}
+    {% include 'nav.html' %}
 {% endblock %}
 
 {% block content %}{% endblock %}
+{% block script %}{% endblock %}
 
 </body>
 </html>
