@@ -71,6 +71,10 @@ SOCIAL_AUTH_FACEBOOK_SECRET=
 * Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
 `ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
 
+## Translation 
+
+ToDo
+
 ## Features
 
 * Django 1.10.5
@@ -81,6 +85,8 @@ SOCIAL_AUTH_FACEBOOK_SECRET=
 * Dj Database URL 
 * Django test without migrations
 * Django Crispy Forms
-* Basic User Login App
+* Django bootstrap3
+* Social User Login App (facebook e twitter)
 * Django Extensions
 * Dokku pre configured
+* Multi languange i18n
