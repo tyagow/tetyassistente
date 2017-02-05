@@ -35,6 +35,7 @@ class UserRegisterForm(forms.ModelForm):
     email = forms.EmailField(label='Email')
     email2 = forms.EmailField(label='Confirm email')
     password = forms.CharField(widget=forms.PasswordInput)
+    password2 = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -62,10 +63,21 @@ class UserRegisterForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
         email2 = self.cleaned_data.get('email2')
         if not email == email2:
-            raise forms.ValidationError("Emails must match")
+            raise forms.ValidationError("Emails precisam ser iguais")
         email_qs = User.objects.filter(email=email)
 
         if email_qs.exists():
             raise forms.ValidationError("This Email has already been registered!")
 
         return email
+
+    def clean_password2(self):
+        password = self.cleaned_data.get('password')
+        password2 = self.cleaned_data.get('password2')
+        if not password == password2:
+            raise forms.ValidationError("Senha devem ser iguais")
+        #
+        # if email_qs.exists():
+        #     raise forms.ValidationError("This Email has already been registered!")
+
+        return password

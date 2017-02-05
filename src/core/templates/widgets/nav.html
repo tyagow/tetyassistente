@@ -3,6 +3,7 @@
     <ol class="breadcrumb">
         <li><a href="{% url "home" %}">Home</a></li>
         <li>{{ request.path }}</li>
+        <li>{{ request.LANGUAGE_CODE }}</li>
         {% if not request.user.is_authenticated %}
             <li class="pull-right"><a href="{% url "accounts:login" %}">Entrar</a></li>
             <li class="pull-right"><a href="{% url "accounts:register" %}">Registrar</a></li>
