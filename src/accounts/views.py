@@ -15,8 +15,6 @@ def logout_view(request):
     logout(request)
     return redirect('/')
 
-
-
 @login_required
 def settings(request):
     user = request.user

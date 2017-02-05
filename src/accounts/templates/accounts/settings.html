@@ -4,6 +4,13 @@
     <div class="container">
         <h2>Settings</h2>
 
+        <h3>Informações</h3>
+        <p>Username: {{ request.user.username }}</p>
+        <p>Primeiro nome: {{ request.user.first_name }}</p>
+        <p>Ultimo nome: {{ request.user.last_name }}</p>
+        <p>Email: {{ request.user.email }}</p>
+
+
         <h3>Twitter</h3>
         {% if twitter_login %}
             <p>Connected as <a href="https://twitter.com/{{ twitter_login.extra_data.access_token.screen_name }}/" target="_blank">@{{ twitter_login.extra_data.access_token.screen_name }}</a></p>
