@@ -16,13 +16,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+
 from src.core import views as core_views
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    url(r'^i18n/', include('django.conf.urls.i18n'))
+]
+
+urlpatterns += [
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('src.accounts.urls',  namespace='accounts')),
-    # url(r'^login/$', auth_views.login, name='login'),
     url(r'^$', core_views.home, name='home'),
     url('', include('social_django.urls', namespace='social'))
 ]

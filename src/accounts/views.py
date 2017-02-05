@@ -1,6 +1,6 @@
 from django.contrib.auth import (
     logout,
-)
+    authenticate, login)
 from django.shortcuts import redirect
 
 
@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
+
+from src.accounts.forms import UserRegisterForm
 
 
 def logout_view(request):
@@ -56,3 +58,25 @@ def password(request):
     else:
         form = PasswordForm(request.user)
     return render(request, 'accounts/password.html', {'form': form})
+
+
+def register_view(request):
+    title = "Register"
+    form = UserRegisterForm(request.POST or None)
+    next = request.GET.get("next")
+    if form.is_valid():
+        user = form.save(commit=False)
+        password = form.cleaned_data.get('password')
+        user.set_password(password)
+        user.save()
+
+        new_user = authenticate(username=user.username, password=password)
+        login(request, new_user)
+        if next:
+            return redirect(next)
+        return redirect('/')
+    context = {
+        "form": form,
+        "title": title,
+    }
+    return render(request, "form.html", context)
