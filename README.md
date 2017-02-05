@@ -25,6 +25,10 @@ python manage.py migrate
 python manage.py test
 python manage.py runserver
 ```
+## Configurar Social Auth
+
+https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
+
 
 ## Como fazer primeiro deploy ?
 

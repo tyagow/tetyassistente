@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Bem vindo </h1>
+        <h3>{{ request.user }}</h3>
+        <br/>
+        <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a> | <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+    </div>
+{% endblock %}
