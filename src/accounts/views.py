@@ -1,7 +1,7 @@
 from django.contrib.auth import (
     logout,
 )
-from django.shortcuts import  redirect
+from django.shortcuts import redirect
 
 
 from django.shortcuts import render
@@ -51,10 +51,10 @@ def password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            messages.success(request, 'Your password was successfully updated!')
-            return redirect('password')
+            messages.success(request, 'Sua senha foi atualizada!')
+            return redirect('accounts:settings')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Corriga os erros no formulário!')
     else:
         form = PasswordForm(request.user)
     return render(request, 'accounts/password.html', {'form': form})

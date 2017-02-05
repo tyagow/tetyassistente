@@ -2,9 +2,10 @@
     <ol class="breadcrumb">
         <li><a href="{% url "home" %}">Home</a></li>
         {% if not request.user.is_authenticated %}
-{#            <li class="pull-right"><a href="{% url "accounts:register" %}">Register</a></li>#}
+            {#            <li class="pull-right"><a href="{% url "accounts:register" %}">Register</a></li>#}
             <li class="pull-right"><a href="{% url "accounts:login" %}">Login</a></li>
         {% else %}
+            <li class="pull-right"><a href="{% url "accounts:settings" %}">{{ request.user.first_name }}</a></li>
             <li class="pull-right"><a href="{% url "accounts:logout" %}">Logout</a></li>
         {% endif %}
 
