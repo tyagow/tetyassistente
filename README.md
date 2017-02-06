@@ -71,6 +71,7 @@ SOCIAL_AUTH_FACEBOOK_SECRET=
 `git push dokku master`
 * Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
 `ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
+* http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
 ## Translation 
 
