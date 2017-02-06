@@ -112,3 +112,5 @@ SOCIAL_AUTH_FACEBOOK_KEY=
 SOCIAL_AUTH_FACEBOOK_SECRET=
 
 * **Configurar o HOST no App do Facebook**
+
+* **Uncomment buttons to social login in registration/login.html** 

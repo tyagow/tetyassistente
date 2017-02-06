@@ -21,22 +21,22 @@ def logout_view(request):
 def settings(request):
     user = request.user
 
-    try:
-        twitter_login = user.social_auth.get(provider='twitter')
-    except Exception:
-        twitter_login = None
-
-    try:
-        facebook_login = user.social_auth.get(provider='facebook')
-    except Exception:
-        facebook_login = None
-
-    can_disconnect = (user.social_auth.count() > 1 or user.has_usable_password())
+    # try:
+    #     twitter_login = user.social_auth.get(provider='twitter')
+    # except Exception:
+    #     twitter_login = None
+    #
+    # try:
+    #     facebook_login = user.social_auth.get(provider='facebook')
+    # except Exception:
+    #     facebook_login = None
+    #
+    # can_disconnect = (user.social_auth.count() > 1 or user.has_usable_password())
 
     return render(request, 'accounts/settings.html', {
-        'twitter_login': twitter_login,
-        'facebook_login': facebook_login,
-        'can_disconnect': can_disconnect
+        # 'twitter_login': twitter_login,
+        # 'facebook_login': facebook_login,
+        # 'can_disconnect': can_disconnect
     })
 
 @login_required
