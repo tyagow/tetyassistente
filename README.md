@@ -25,15 +25,6 @@ python manage.py migrate
 python manage.py test
 python manage.py runserver
 ```
-## Social Auth
-
-* **Configurar variaveis no .env**
-SOCIAL_AUTH_TWITTER_KEY=
-SOCIAL_AUTH_TWITTER_SECRET=
-SOCIAL_AUTH_FACEBOOK_KEY=
-SOCIAL_AUTH_FACEBOOK_SECRET=
-
-* **Configurar o HOST no App do Facebook**
 
 ## Como fazer primeiro deploy ?
 
@@ -88,7 +79,36 @@ ToDo
 * Django test without migrations
 * Django Crispy Forms
 * Django bootstrap3
-* Social User Login App (facebook e twitter)
+* Social User Login App* (facebook e twitter)
 * Django Extensions
 * Dokku pre configured
 * Multi languange i18n
+
+**Need additional configuration**
+
+## Adicionar Social Auth
+
+* **Adicionar ao INSTALLED_APPS**
+'social_django',
+
+* **Adicionar ao requirements.txt**
+social-auth-app-django
+
+* **Adicionar ao urls.py**
+    url('', include('social_django.urls', namespace='social'))
+
+* **Adicionar ao MIDDLEWARE_CLASSES**
+    'social_django.middleware.SocialAuthExceptionMiddleware',    
+
+* **Adicionar ao TEMPLATES**
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
+* **Configurar variaveis no .env**
+
+SOCIAL_AUTH_TWITTER_KEY=
+SOCIAL_AUTH_TWITTER_SECRET=
+SOCIAL_AUTH_FACEBOOK_KEY=
+SOCIAL_AUTH_FACEBOOK_SECRET=
+
+* **Configurar o HOST no App do Facebook**
