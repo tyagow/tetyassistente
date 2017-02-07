@@ -38,6 +38,7 @@ Digite no terminal::
     python manage.py test
     python manage.py runserver
 
+
 Configure your installation
 ---------------------------
 
