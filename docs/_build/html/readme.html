@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>django-telegrambot &mdash; Documentação Django Base 0.5</title>
+  <title>Django Base &mdash; Documentação Django Base 0.5</title>
   
 
   
@@ -85,7 +85,7 @@
             
             
                 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">django-telegrambot</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Django Base</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configure-your-installation">Configure your installation</a></li>
@@ -130,7 +130,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>django-telegrambot</li>
+    <li>Django Base</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -144,21 +144,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="django-telegrambot">
-<h1>django-telegrambot<a class="headerlink" href="#django-telegrambot" title="Link permanente para este título">¶</a></h1>
+  <div class="section" id="django-base">
+<h1>Django Base<a class="headerlink" href="#django-base" title="Link permanente para este título">¶</a></h1>
 <a class="reference external image-reference" href="https://badge.fury.io/py/django-telegrambot"><img alt="https://badge.fury.io/py/django-telegrambot.png" src="https://badge.fury.io/py/django-telegrambot.png" /></a>
 <a class="reference external image-reference" href="https://travis-ci.org/JungDev/django-telegrambot"><img alt="https://travis-ci.org/JungDev/django-telegrambot.png?branch=master" src="https://travis-ci.org/JungDev/django-telegrambot.png?branch=master" /></a>
-<p>A simple app to develop Telegram bots with Django</p>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link permanente para este título">¶</a></h2>
-<p>The full documentation is at <a class="reference external" href="https://django-telegrambot.readthedocs.org">https://django-telegrambot.readthedocs.org</a>.</p>
+<p>The full documentation is at <a class="reference external" href="http://django-base.readthedocs.io">http://django-base.readthedocs.io</a>.</p>
 </div>
 <div class="section" id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Link permanente para este título">¶</a></h2>
-<p>Install django-telegrambot:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">telegrambot</span>
-</pre></div>
-</div>
+<ol class="arabic">
+<li><p class="first">Clone o repositório.</p>
+</li>
+<li><p class="first">Crie um virutalenv com o Python 3.5</p>
+</li>
+<li><p class="first">Ative o Virtualenv.</p>
+</li>
+<li><p class="first">Instale as dependencias.</p>
+</li>
+<li><p class="first">Configure a instancia com o .env</p>
+</li>
+<li><p class="first">Migre seus modelos para o Banco de Dados</p>
+</li>
+<li><p class="first">Roda o collectstatic para configurar arquivos staticos</p>
+</li>
+<li><p class="first">Execute os testes.</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/tyagow/django-base.git">https://github.com/tyagow/django-base.git</a> Nome-Do-Projeto
+cd
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp contrib/env-sample .env
+python manage.py collectstatic
+python manage.py migrate
+python manage.py test
+python manage.py runserver</p>
+</div></blockquote>
+</li>
+</ol>
 </div>
 <div class="section" id="configure-your-installation">
 <h2>Configure your installation<a class="headerlink" href="#configure-your-installation" title="Link permanente para este título">¶</a></h2>

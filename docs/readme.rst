@@ -1,5 +1,5 @@
 =============================
-django-telegrambot
+Django Base
 =============================
 
 .. image:: https://badge.fury.io/py/django-telegrambot.png
@@ -8,19 +8,33 @@ django-telegrambot
 .. image:: https://travis-ci.org/JungDev/django-telegrambot.png?branch=master
     :target: https://travis-ci.org/JungDev/django-telegrambot
 
-A simple app to develop Telegram bots with Django
-
 Documentation
 -------------
 
-The full documentation is at https://django-telegrambot.readthedocs.org.
+The full documentation is at http://django-base.readthedocs.io.
 
 Quickstart
 ----------
 
-Install django-telegrambot::
+1. Clone o repositório.
+2. Crie um virutalenv com o Python 3.5
+3. Ative o Virtualenv.
+4. Instale as dependencias.
+5. Configure a instancia com o .env
+6. Migre seus modelos para o Banco de Dados
+7. Roda o collectstatic para configurar arquivos staticos
+8. Execute os testes.
 
-    pip install django-telegrambot
+       git clone https://github.com/tyagow/django-base.git Nome-Do-Projeto
+       cd
+       python -m venv .venv
+       source .venv/bin/activate
+       pip install -r requirements.txt
+       cp contrib/env-sample .env
+       python manage.py collectstatic
+       python manage.py migrate
+       python manage.py test
+       python manage.py runserver
 
 Configure your installation
 ---------------------------
