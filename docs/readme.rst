@@ -24,8 +24,7 @@ Quickstart
 6. Migre seus modelos para o Banco de Dados
 7. Roda o collectstatic para configurar arquivos staticos
 8. Execute os testes.
-
-Console ::
+::
 
     git clone https://github.com/tyagow/django-base.git Nome-Do-Projeto
     cd Nome-Do-Projeto
