@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>django-telegrambot &#8212; Documentação Django Base 0.5</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Welcome to Django Base’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="django-telegrambot">
+<h1>django-telegrambot<a class="headerlink" href="#django-telegrambot" title="Link permanente para este título">¶</a></h1>
+<a class="reference external image-reference" href="https://badge.fury.io/py/django-telegrambot"><img alt="https://badge.fury.io/py/django-telegrambot.png" src="https://badge.fury.io/py/django-telegrambot.png" /></a>
+<a class="reference external image-reference" href="https://travis-ci.org/JungDev/django-telegrambot"><img alt="https://travis-ci.org/JungDev/django-telegrambot.png?branch=master" src="https://travis-ci.org/JungDev/django-telegrambot.png?branch=master" /></a>
+<p>A simple app to develop Telegram bots with Django</p>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link permanente para este título">¶</a></h2>
+<p>The full documentation is at <a class="reference external" href="https://django-telegrambot.readthedocs.org">https://django-telegrambot.readthedocs.org</a>.</p>
+</div>
+<div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Link permanente para este título">¶</a></h2>
+<p>Install django-telegrambot:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="n">telegrambot</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-your-installation">
+<h2>Configure your installation<a class="headerlink" href="#configure-your-installation" title="Link permanente para este título">¶</a></h2>
+<p>Add <code class="docutils literal"><span class="pre">django_telegrambot</span></code> in <code class="docutils literal"><span class="pre">INSTALLED_APPS</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#settings.py</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;django_telegrambot&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>And set your bots:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#settings.py</span>
+<span class="c1">#Django Telegram Bot settings</span>
+<span class="n">TELEGRAM_BOT_TOKENS</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;BOT_1_token&#39;</span><span class="p">,</span><span class="s1">&#39;BOT_2_token&#39;</span><span class="p">,)</span>
+<span class="n">TELEGRAM_WEBHOOK_SITE</span> <span class="o">=</span> <span class="s1">&#39;https://mysite.it&#39;</span>
+<span class="n">TELEGRAM_WEBHOOK_BASE</span> <span class="o">=</span> <span class="s1">&#39;/baseurl&#39;</span>
+<span class="c1">#TELEGRAM_WEBHOOK_CERTIFICATE = &#39;cert.pem&#39; #If your site use self-signed certificate, must be set with location of your public key certificate. (More info at https://core.telegram.org/bots/self-signed )</span>
+</pre></div>
+</div>
+<p>Include in your urls.py the <code class="docutils literal"><span class="pre">django_telegrambot.urls</span></code> using the same value of <code class="docutils literal"><span class="pre">TELEGRAM_WEBHOOK_BASE</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#urls.py</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="n">url</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^baseurl/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;django_telegrambot.urls&#39;</span><span class="p">)),</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Then use it in a project creating a module <code class="docutils literal"><span class="pre">telegrambot.py</span></code> in your app</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#myapp/telegrambot.py</span>
+<span class="c1"># Example code for telegrambot.py module</span>
+<span class="kn">from</span> <span class="nn">telegram.ext</span> <span class="k">import</span> <span class="n">CommandHandler</span><span class="p">,</span> <span class="n">MessageHandler</span><span class="p">,</span> <span class="n">Filters</span>
+<span class="kn">from</span> <span class="nn">django_telegrambot.apps</span> <span class="k">import</span> <span class="n">DjangoTelegramBot</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="c1"># Define a few command handlers. These usually take the two arguments bot and</span>
+<span class="c1"># update. Error handlers also receive the raised TelegramError object in error.</span>
+<span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="n">bot</span><span class="p">,</span> <span class="n">update</span><span class="p">):</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">update</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Hi!&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">help</span><span class="p">(</span><span class="n">bot</span><span class="p">,</span> <span class="n">update</span><span class="p">):</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">update</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Help!&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">bot</span><span class="p">,</span> <span class="n">update</span><span class="p">):</span>
+    <span class="n">bot</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">update</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">update</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="n">bot</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Update &quot;</span><span class="si">%s</span><span class="s1">&quot; caused error &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Loading handlers for telegram bot&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Default dispatcher (this is related to the first bot in settings.TELEGRAM_BOT_TOKENS)</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="n">DjangoTelegramBot</span><span class="o">.</span><span class="n">dispatcher</span>
+    <span class="c1"># To get Dispatcher related to a specific bot</span>
+    <span class="c1"># dp = DjangoTelegramBot.getDispatcher(&#39;BOT_n_token&#39;)     #get by bot token</span>
+    <span class="c1"># dp = DjangoTelegramBot.getDispatcher(&#39;BOT_n_username&#39;)  #get by bot username</span>
+
+    <span class="c1"># on different commands - answer in Telegram</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">add_handler</span><span class="p">(</span><span class="n">CommandHandler</span><span class="p">(</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="n">start</span><span class="p">))</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">add_handler</span><span class="p">(</span><span class="n">CommandHandler</span><span class="p">(</span><span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="n">help</span><span class="p">))</span>
+
+    <span class="c1"># on noncommand i.e message - echo the message on Telegram</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">add_handler</span><span class="p">(</span><span class="n">MessageHandler</span><span class="p">([</span><span class="n">Filters</span><span class="o">.</span><span class="n">text</span><span class="p">],</span> <span class="n">echo</span><span class="p">))</span>
+
+    <span class="c1"># log all errors</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">add_error_handler</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="c1"># log all errors</span>
+    <span class="n">dp</span><span class="o">.</span><span class="n">addErrorHandler</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link permanente para este título">¶</a></h2>
+<ul class="simple">
+<li>Multiple bots</li>
+</ul>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Link permanente para este título">¶</a></h2>
+<p>Patches and bug reports are welcome, just please keep the style consistent with the original source.</p>
+</div>
+<div class="section" id="running-tests">
+<h2>Running Tests<a class="headerlink" href="#running-tests" title="Link permanente para este título">¶</a></h2>
+<p>Does the code actually work?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source &lt;YOURVIRTUALENV&gt;/bin/activate
+(myenv) $ pip install -r requirements-test.txt
+(myenv) $ python runtests.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Link permanente para este título">¶</a></h2>
+<p>Required package:
+* <a class="reference external" href="https://github.com/python-telegram-bot/python-telegram-bot">Python Telegram Bot</a></p>
+<p>Tools used in rendering this package:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/audreyr/cookiecutter">Cookiecutter</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Tabela de Conteúdos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">django-telegrambot</a><ul>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#quickstart">Quickstart</a></li>
+<li><a class="reference internal" href="#configure-your-installation">Configure your installation</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+<li><a class="reference internal" href="#running-tests">Running Tests</a></li>
+<li><a class="reference internal" href="#credits">Credits</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="capítulo anterior">Welcome to Django Base&#8217;s documentation!</a></li>
+      <li>Next: <a href="contributing.html" title="próximo capítulo">Contributing</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Esta Página</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/readme.rst.txt"
+            rel="nofollow">Exibir Fonte</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Pesquisa rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Tiago Almeida.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/readme.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
