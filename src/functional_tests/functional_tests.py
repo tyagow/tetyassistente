@@ -10,7 +10,7 @@ class NovoVisitanteTest(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def test_pode_pesquisar_empresa(self):
+    def test_acessa_site(self):
         self.browser.get('http://localhost:8000')
         import time
         time.sleep(3)

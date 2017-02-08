@@ -39,100 +39,96 @@ Digite no terminal::
     python manage.py runserver
 
 
-Configure your installation
+Como fazer o Deploy?
 ---------------------------
 
-Add ``django_telegrambot`` in ``INSTALLED_APPS`` ::
+1. Install Digital Ocean Dokku image
+2. Send your ssh-key to dokku
+3. Connect via ssh to your server
+4. Create app in dokku
+5. Install postgres plugin in dokku
+6. Create database for your app in dokku
+7. Link database and app in dokku
+8. Set DEBUG in dokku
+9. Generate new SECRET_KEY
+10. Set SECRET_KEY in dokku
+11. Set ALLOWED_HOSTS in dokku
+12. Set Global Domain dor dokku
+13. Push your code to dokku
 
-       #settings.py
-       INSTALLED_APPS = (
-           ...
-           'django_telegrambot',
-           ...
-       )
+Digite no terminal ::
 
-And set your bots::
-
-        #settings.py
-        #Django Telegram Bot settings
-        TELEGRAM_BOT_TOKENS = ('BOT_1_token','BOT_2_token',)
-        TELEGRAM_WEBHOOK_SITE = 'https://mysite.it'
-        TELEGRAM_WEBHOOK_BASE = '/baseurl'
-        #TELEGRAM_WEBHOOK_CERTIFICATE = 'cert.pem' #If your site use self-signed certificate, must be set with location of your public key certificate. (More info at https://core.telegram.org/bots/self-signed )
-
-
-Include in your urls.py the ``django_telegrambot.urls`` using the same value of ``TELEGRAM_WEBHOOK_BASE`` ::
-
-        #urls.py
-        urlpatterns = [
-            ...
-            url(r'^baseurl/', include('django_telegrambot.urls')),
-            ...
-        ]
-
-Then use it in a project creating a module ``telegrambot.py`` in your app ::
-
-        #myapp/telegrambot.py
-        # Example code for telegrambot.py module
-        from telegram.ext import CommandHandler, MessageHandler, Filters
-        from django_telegrambot.apps import DjangoTelegramBot
-
-        import logging
-        logger = logging.getLogger(__name__)
+    (local) cat ~/.ssh/id_rsa.pub | ssh root@<your.ip.address> "sudo sshcommand acl-add dokku [description]"
+    (local) ssh root@<your.ip.address>
+    (server) dokku apps:create <app-name>
+    (server) sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
+    (server) dokku postgres:create <database-name>
+    (server) dokku postgres:link <databse-name> <app-name>
+    (local) git remote add dokku dokku@dokku.me:<app-name>
+    (local) ssh dokku@<your.ip.address> config:set <app-name> DEBUG=False
+    (local) python contrib/secret_gen.py
+    (local) ssh dokku@<your.ip.address> config:set <app-name> SECRET_KEY='<new-generated-key>'
+    (local) ssh dokku@<your.ip.address> config:set <app-name> ALLOWED_HOSTS=<app-name>.<your.ip.address>.xip.io
+    (local) ssh dokku@<your.ip.address> domains:add-global <your.ip.address>.xip.io
+    (local) git push dokku master
 
 
-        # Define a few command handlers. These usually take the two arguments bot and
-        # update. Error handlers also receive the raised TelegramError object in error.
-        def start(bot, update):
-            bot.sendMessage(update.message.chat_id, text='Hi!')
-
-
-        def help(bot, update):
-            bot.sendMessage(update.message.chat_id, text='Help!')
-
-
-        def echo(bot, update):
-            bot.sendMessage(update.message.chat_id, text=update.message.text)
-
-
-        def error(bot, update, error):
-            logger.warn('Update "%s" caused error "%s"' % (update, error))
-
-
-        def main():
-            logger.info("Loading handlers for telegram bot")
-
-            # Default dispatcher (this is related to the first bot in settings.TELEGRAM_BOT_TOKENS)
-            dp = DjangoTelegramBot.dispatcher
-            # To get Dispatcher related to a specific bot
-            # dp = DjangoTelegramBot.getDispatcher('BOT_n_token')     #get by bot token
-            # dp = DjangoTelegramBot.getDispatcher('BOT_n_username')  #get by bot username
-
-            # on different commands - answer in Telegram
-            dp.add_handler(CommandHandler("start", start))
-            dp.add_handler(CommandHandler("help", help))
-
-            # on noncommand i.e message - echo the message on Telegram
-            dp.add_handler(MessageHandler([Filters.text], echo))
-
-            # log all errors
-            dp.add_error_handler(error)
-
-            # log all errors
-            dp.addErrorHandler(error)
-
+**NOTES**
+* Depois do primeiro deploy feito basta um comando para o deploy:
+`git push dokku master`
+* Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
+`ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
+* http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
 
 Features
 --------
 
-* Multiple bots
+* Django 1.10.5
+* Bootstrap 3.3.7
+* JQuery 3.1.1
+* Python Decouple
+* DJ Static (serving static files locally)
+* Dj Database URL
+* Django test without migrations
+* Django Crispy Forms
+* Django bootstrap3
+* Social User Login App* (facebook e twitter)
+* Django Extensions
+* Dokku pre configured
+* Multi languange i18n
 
-Contributing
+**Need additional configuration**
+
+Social Auth
 ------------
 
-Patches and bug reports are welcome, just please keep the style consistent with the original source.
+* **Adicionar ao INSTALLED_APPS**
+'social_django',
 
+* **Adicionar ao requirements.txt**
+social-auth-app-django
+
+* **Adicionar ao urls.py**
+    url('', include('social_django.urls', namespace='social'))
+
+* **Adicionar ao MIDDLEWARE_CLASSES**
+    'social_django.middleware.SocialAuthExceptionMiddleware',
+
+* **Adicionar ao TEMPLATES**
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
+* **Configurar variaveis no .env**
+
+SOCIAL_AUTH_TWITTER_KEY=
+SOCIAL_AUTH_TWITTER_SECRET=
+SOCIAL_AUTH_FACEBOOK_KEY=
+SOCIAL_AUTH_FACEBOOK_SECRET=
+
+* **Configurar o HOST no App do Facebook**
+
+* **Uncomment buttons to social login in registration/login.html**
 Running Tests
 --------------
 
@@ -144,16 +140,4 @@ Does the code actually work?
     (myenv) $ pip install -r requirements-test.txt
     (myenv) $ python runtests.py
 
-Credits
----------
-Required package:
-* `Python Telegram Bot`_
-
-.. _`Python Telegram Bot`: https://github.com/python-telegram-bot/python-telegram-bot
-
-Tools used in rendering this package:
-
-*  Cookiecutter_
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
 
