@@ -10,5 +10,5 @@ class HomeTest(TestCase):
         self.assertEqual(200, self.response.status_code)
 
     def test_template(self):
-        """Must use index.html"""
+        """Must use core/index.html"""
         self.assertTemplateUsed(self.response, 'core/index.html')
