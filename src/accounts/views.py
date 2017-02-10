@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 from src.accounts.forms import UserRegisterForm
 
@@ -51,10 +52,10 @@ def password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            messages.success(request, 'Sua senha foi atualizada!')
+            messages.success(request, _('Sua senha foi atualizada!'))
             return redirect('accounts:settings')
         else:
-            messages.error(request, 'Corriga os erros no formulário!')
+            messages.error(request, _('Corriga os erros no formulário!'))
     else:
         form = PasswordForm(request.user)
     return render(request, 'accounts/password.html', {'form': form})

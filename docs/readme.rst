@@ -2,11 +2,9 @@
 Django Base
 =============================
 
-.. image:: https://badge.fury.io/py/django-telegrambot.png
-    :target: https://badge.fury.io/py/django-telegrambot
 
-.. image:: https://travis-ci.org/JungDev/django-telegrambot.png?branch=master
-    :target: https://travis-ci.org/JungDev/django-telegrambot
+.. image:: https://travis-ci.org/tyagow/django-base.svg?branch=master
+    :target: https://travis-ci.org/tyagow/django-base
 
 Documentation
 -------------
