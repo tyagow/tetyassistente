@@ -80,6 +80,10 @@ Digite no terminal ::
 `ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
 * http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
+**Configurar AmazonS3**
+
+* https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
+
 
 Features
 --------

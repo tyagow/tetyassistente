@@ -19,7 +19,7 @@ Live demo @ http://django-base.104.236.104.21.xip.io
 
 ```console
 git clone https://github.com/tyagow/django-base.git Nome-Do-Projeto
-cd 
+cd Nome-Do-Projeto
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
