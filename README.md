@@ -2,7 +2,9 @@
 
 Projeto Base
 
-Live demo http://django-base.readthedocs.io
+The full documentation is at http://django-base.readthedocs.io
+
+Live demo @ http://django-base.104.236.104.21.xip.io
 
 ## Como desenvolver ?
 
