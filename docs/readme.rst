@@ -119,16 +119,19 @@ Social Auth
 
   url('', include('social_django.urls', namespace='social'))
 
-* **Adicionar ao MIDDLEWARE_CLASSES**::
+* **Adicionar ao MIDDLEWARE_CLASSES**
+::
 
     'social_django.middleware.SocialAuthExceptionMiddleware',
 
-* **Adicionar ao TEMPLATES**::
+* **Adicionar ao TEMPLATES**
+::
 
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
 
-* **Configurar variaveis no .env**::
+* **Configurar variaveis no .env**
+::
 
     SOCIAL_AUTH_TWITTER_KEY=
     SOCIAL_AUTH_TWITTER_SECRET=
