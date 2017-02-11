@@ -104,31 +104,41 @@ Social Auth
 ------------
 
 * **Adicionar ao INSTALLED_APPS**
-'social_django',
+::
+
+  'social_django',
 
 * **Adicionar ao requirements.txt**
-social-auth-app-django
+
+::
+
+ social-auth-app-django
 
 * **Adicionar ao urls.py**
-    url('', include('social_django.urls', namespace='social'))
+::
 
-* **Adicionar ao MIDDLEWARE_CLASSES**
+  url('', include('social_django.urls', namespace='social'))
+
+* **Adicionar ao MIDDLEWARE_CLASSES**::
+
     'social_django.middleware.SocialAuthExceptionMiddleware',
 
-* **Adicionar ao TEMPLATES**
+* **Adicionar ao TEMPLATES**::
+
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
 
-* **Configurar variaveis no .env**
+* **Configurar variaveis no .env**::
 
-SOCIAL_AUTH_TWITTER_KEY=
-SOCIAL_AUTH_TWITTER_SECRET=
-SOCIAL_AUTH_FACEBOOK_KEY=
-SOCIAL_AUTH_FACEBOOK_SECRET=
+    SOCIAL_AUTH_TWITTER_KEY=
+    SOCIAL_AUTH_TWITTER_SECRET=
+    SOCIAL_AUTH_FACEBOOK_KEY=
+    SOCIAL_AUTH_FACEBOOK_SECRET=
 
 * **Configurar o HOST no App do Facebook**
 
 * **Uncomment buttons to social login in registration/login.html**
+
 Running Tests
 --------------
 
