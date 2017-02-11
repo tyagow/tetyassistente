@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* django-telegrambot <francesco.scarlato@gmail.com>
+* django-base <tyagow@hotmail.com.br>
 
 Contributors
 ------------

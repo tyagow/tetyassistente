@@ -135,7 +135,6 @@ Does the code actually work?
 ::
 
     source <YOURVIRTUALENV>/bin/activate
-    (myenv) $ pip install -r requirements-test.txt
-    (myenv) $ python runtests.py
+    (myenv) $ python manage.py test
 
 
