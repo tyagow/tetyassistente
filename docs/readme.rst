@@ -56,6 +56,7 @@ Como fazer o Deploy?
 12. Set Global Domain dor dokku
 13. Push your code to dokku
 14. Run the migrations
+15. Collect static data with DEBUG=False
 
 Digite no terminal ::
 
@@ -75,6 +76,7 @@ Digite no terminal ::
     (local) ssh dokku@<your.ip.address> domains:enable <app-name>
     (local) git push dokku master
     (local) ssh dokku@<your.ip.address> run <app-name> python manage.py migrate
+    (local) DEBUG=False | ./manage.py collectstatic
 
 
 **NOTES**
