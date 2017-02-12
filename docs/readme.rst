@@ -138,7 +138,7 @@ Social Auth
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
 
-* **Configurar variaveis no .env**
+* **Configurar variaveis no .env e no servidor**
 ::
 
     SOCIAL_AUTH_TWITTER_KEY=
@@ -149,6 +149,8 @@ Social Auth
 * **Configurar o HOST no App do Facebook**
 
 * **Uncomment buttons to social login in registration/login.html**
+
+* Tutorial: https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
 
 Running Tests
 --------------
