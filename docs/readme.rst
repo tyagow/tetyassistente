@@ -175,7 +175,7 @@ Does the code actually work?
 
 ::
 
-    source <YOURVIRTUALENV>/bin/activate
+    source .venv/bin/activate
     (myenv) $ python manage.py test
 
 
