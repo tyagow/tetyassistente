@@ -76,7 +76,7 @@ Digite no terminal ::
     (local) ssh dokku@<your.ip.address> domains:enable <app-name>
     (local) git push dokku master
     (local) ssh dokku@<your.ip.address> run <app-name> python manage.py migrate
-    (local) DEBUG=False | ./manage.py collectstatic
+    (local) DEBUG=False python manage.py collectstatic
 
 
 **NOTES**
