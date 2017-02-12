@@ -70,6 +70,7 @@ Digite no terminal ::
     (local) ssh dokku@<your.ip.address> config:set <app-name> SECRET_KEY='<new-generated-key>'
     (local) ssh dokku@<your.ip.address> config:set <app-name> ALLOWED_HOSTS=<app-name>.<your.ip.address>.xip.io
     (local) ssh dokku@<your.ip.address> domains:add-global <your.ip.address>.xip.io
+    (local) ssh dokku@<your.ip.address> domains:enable <app-name>
     (local) git push dokku master
 
 
