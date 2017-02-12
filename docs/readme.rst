@@ -116,6 +116,15 @@ Social Auth
 
   'social_django',
 
+* **Adicionar ao settings.py**
+::
+
+  AUTHENTICATION_BACKENDS = (
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+  )
+
 * **Adicionar ao requirements.txt**
 
 ::
