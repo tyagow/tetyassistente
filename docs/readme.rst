@@ -91,6 +91,26 @@ Digite no terminal ::
 
 * http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
+**Dokku**
+* Change PORT
+`
+(não recomendado, se configurar na porta 80 só poderei ter 1 serviço (app) )
+" you can only bind a single service to port 80 if you do not use a vhost
+but i highly suggest using a vhost for your server
+so then you get urls like
+app.vhost.com " @ savant`
+
+`
+dokku config:set APP DOKKU_NGINX_PORT=80 DOKKU_PROXY_PORT_MAP=http:80:5000
+`
+
+* Configurar um vhost
+`dokku domains:add-global domain_here`
+
+* Re-enable vhosts for your app
+( http://dokku.viewdocs.io/dokku/configuration/domains/ )
+`dokku domains:enable APP`
+
 **Configurar AmazonS3**
 
 * https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
