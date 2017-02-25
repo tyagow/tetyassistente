@@ -2,6 +2,28 @@
 Usage
 ========
 
+Translation
+-----------
+
+**Complilar textos a serem traduzidos**
+
+* Criar uma pasta locale dentro de cada App que será traduzido.
+
+* Criar arquivo para as mensagens a serem traduzidas::
+
+    django-admin makemessages -l en
+
+*O ultimo parametro é referente a linguagem que o arquivo será traduzida
+
+* Traduzir o arquivo django.po
+
+* Compliar arquivo traduzido::
+
+    django-admin compilemessages
+
+**NOTES**
+
+* Não traduzir palavras dentro de {} pois são variáveis usadas pelo django e não texto a ser traduzido.
 
 Pagination
 ----------
