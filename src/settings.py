@@ -43,7 +43,7 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 
 LOGIN_URL = 'account/login'
 LOGOUT_URL = 'account/logout'
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'core:home'
 
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/account/settings/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/account/settings/'

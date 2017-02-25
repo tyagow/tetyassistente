@@ -79,5 +79,6 @@ def register_view(request):
     context = {
         "form": form,
         "title": title,
+        'button_text': title
     }
-    return render(request, "form.html", context)
+    return render(request, "widgets/form.html", context)
