@@ -21,24 +21,19 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
     <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
 
     <script src="{% static 'js/main.js' %}"></script>
 </head>
 
 <body>
-<div id="wrap">
-    <div class="container-fuild">
-        <div id="fb-root"></div>
-        {% block  navbar %}
-            {% include 'widgets/nav.html' %}
-        {% endblock %}
-        {% bootstrap_messages %}
-        {% block content %}{% endblock %}
-    </div>
-</div>
+{% block  navbar %}
+    {% include 'widgets/nav.html' %}
+{% endblock %}
+{% bootstrap_messages %}
+{% block content %}{% endblock %}
 {% block footer %}
-    {% include 'widgets/footer.html' %}
+        {% include 'widgets/footer.html' %}
 {% endblock %}
 {% block script %}{% endblock %}
 
