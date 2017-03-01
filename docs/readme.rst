@@ -120,7 +120,7 @@ Features
 --------
 
 * Django 1.10.5
-* Bootstrap 3.3.7
+* Bootstrap 4 alpha 6
 * JQuery 3.1.1
 * Python Decouple
 * DJ Static (serving static files locally)
