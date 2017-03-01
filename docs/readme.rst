@@ -188,6 +188,12 @@ Social Auth
 
 * Tutorial: https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html
 
+Translation
+-----------
+
+* Tutorial: http://www.marinamele.com/taskbuster-django-tutorial/internationalization-localization-languages-time-zones
+
+
 Running Tests
 --------------
 

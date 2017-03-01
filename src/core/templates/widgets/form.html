@@ -19,7 +19,7 @@
                         {% csrf_token %}
                         {% bootstrap_form form layout="vertical" %}
                         <div class="footer-form">
-                            <button type="submit" class=" btn btn-grande">{{ button_text }}</button>
+                            <button type="submit" class=" btn btn-outline-primary ">{{ button_text }}</button>
                         </div>
                     </form>
                     {% block footer_form %}{% endblock %}
