@@ -34,9 +34,9 @@ class UserLoginForm(forms.Form):
 
 class UserRegisterForm(forms.ModelForm):
     email = forms.EmailField(label='Email')
-    email2 = forms.EmailField(label='Confirm email')
-    password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(widget=forms.PasswordInput)
+    email2 = forms.EmailField(label=_('Confirme o seu email'))
+    password = forms.CharField(label=_('Escolha uma senha'),widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_('Confirme a sua senha'),widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -46,6 +46,14 @@ class UserRegisterForm(forms.ModelForm):
             'email2',
             'password'
         ]
+        labels = {
+            'username': _('Usuário'),
+        }
+        help_texts = {
+            'username': _(''),
+        }
+
+
 
     # with clean the validations errors messages dont goes to the actual field ...
     # def clean(self, *args, **kwargs):

@@ -62,7 +62,7 @@ def password(request):
 
 
 def register_view(request):
-    title = "Register"
+    title = _("Registrar")
     form = UserRegisterForm(request.POST or None)
     next = request.GET.get("next")
     if form.is_valid():
