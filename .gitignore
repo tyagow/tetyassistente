@@ -7,3 +7,6 @@ mediafiles/
 /staticfiles
 media/
 .env
+.coverage
+htmlcov
+.coveragerc

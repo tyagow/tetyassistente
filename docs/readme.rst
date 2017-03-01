@@ -132,6 +132,7 @@ Features
 * Django Extensions
 * Dokku pre configured
 * Multi languange i18n
+* Coverage
 
 **Need additional configuration**
 
