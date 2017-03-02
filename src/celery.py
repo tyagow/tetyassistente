@@ -21,7 +21,7 @@ app.autodiscover_tasks()
 
 @app.on_after_configure.connect
 def setup_periodic_tasks(sender, **kwargs):
-    pass
+    # pass
     # Calls test('hello') every 10 seconds.
     # sender.add_periodic_task(10.0, test.s({'text': 'hello'}), name='add every 10')
     #
