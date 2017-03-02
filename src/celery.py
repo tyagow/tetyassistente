@@ -3,7 +3,8 @@ from __future__ import absolute_import, unicode_literals
 import os
 
 from celery import Celery
-
+import django
+django.setup()
 # set the default Django settings module for the 'celery' program.
 from src.core.models import TaskLog
 
@@ -28,10 +29,10 @@ def setup_periodic_tasks(sender, **kwargs):
     # sender.add_periodic_task(10.0, test.s({'text': 'hello'}), name='add every 10')
     #
     # # Calls test('world') every 30 seconds
-    sender.add_periodic_task(30.0, test.s({'text': 'world'}), name='every 30')
+    sender.add_periodic_task(30.0, test.s({'id': '1'}), name='every 30')
 
 @app.task
 def test(self, **kwargs):
-    tasklog = TaskLog.objects.get_or_create(task=self)
+    tasklog = TaskLog.objects.get_or_create(taskid=self)
     tasklog.save()
     print('kwargs %s' % self)
