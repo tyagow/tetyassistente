@@ -5,6 +5,8 @@ import os
 from celery import Celery
 
 # set the default Django settings module for the 'celery' program.
+from src.core.models import TaskLog
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src.settings')
 
 app = Celery('tety')
@@ -30,4 +32,6 @@ def setup_periodic_tasks(sender, **kwargs):
 
 @app.task
 def test(self, **kwargs):
+    tasklog = TaskLog.objects.get_or_create(task=self)
+    tasklog.save()
     print('kwargs %s' % self)
