@@ -9,3 +9,7 @@ psycopg2==2.6.1
 django-bootstrap3
 boto
 django-storages
+django-celery-beat==1.0.1
+django-celery-results==1.0.1
+redis
+celery==4.0.2

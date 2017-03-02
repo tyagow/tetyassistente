@@ -59,16 +59,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Project apps
-    'src.core',
-    'src.accounts',
-
     # app de terceiros
     'crispy_forms',
     'django_extensions',
     'bootstrap3',
     'storages',
+    'django_celery_beat',
+    'django_celery_results',
+
+    # Project apps
+    'src.core',
+    'src.accounts',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -184,4 +186,13 @@ else:
     MEDIAFILES_LOCATION = 'media'
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
+# CELERY_RESULT_BACKEND = 'django-db'
 
