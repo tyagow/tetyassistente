@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from celery.schedules import crontab
 from dj_database_url import parse as dburl
 from decouple import config, Csv
 
@@ -196,3 +197,10 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
 # CELERY_RESULT_BACKEND = 'django-db'
 
+CELERY_BEAT_SCHEDULE = {
+    'some name': {
+        'task': 'testtask',
+        'schedule': 10,
+        'args': (1, ),
+    }
+}
