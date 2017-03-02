@@ -197,10 +197,10 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
 # CELERY_RESULT_BACKEND = 'django-db'
 
-CELERY_BEAT_SCHEDULE = {
-    'some name': {
-        'task': 'testtask',
-        'schedule': 10,
-        'args': (1, ),
-    }
-}
+# CELERY_BEAT_SCHEDULE = {
+#     'some name': {
+#         'task': 'testtask',
+#         'schedule': 10,
+#         'args': (1, ),
+#     }
+# }
