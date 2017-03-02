@@ -63,14 +63,22 @@ def main(argv):
 
     with open('.env') as file:
         for line in file:
+
             if not line[:1] == '#':
                 line = line[:-1].split('=')
                 if line[0] == 'ALLOWED_HOSTS':
-                    to_server = '{}={}'.format('ALLOWED_HOSTS', str(allowed_hosts_target))
+                    line = '{}={}'.format('ALLOWED_HOSTS', str(allowed_hosts_target))
+                    to_server = '{} {}'.format(to_server, str(line))
+                elif line[0] == 'SECRET_KEY':
+                    line = "{}='{}'".format('SECRET_KEY', str(line[1]))
+                    to_server = "{} {}".format(to_server, str(line))
                 else:
                     if len(line[1]) > 1:
                         line = '{}={}'.format(line[0], line[1])
                         to_server = '{} {}'.format(to_server, str(line))
+                    else:
+                        # to_server = '{} error{}error'.format(to_server, str(line))
+                        print('Error line: %s' % line)
         if disable_static:
             to_server = '{} {}'.format(to_server, ' DISABLE_COLLECTSTATIC=1')
         if test:
