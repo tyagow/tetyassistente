@@ -1,5 +1,5 @@
 =============================
-Django Base
+Tety Assistente
 =============================
 
 
@@ -9,9 +9,9 @@ Django Base
 Documentation
 -------------
 
-The full documentation is at http://django-base.readthedocs.io.
+The full documentation is at http://tety-assistente.readthedocs.io/en/latest/.
 
-Live demo @ http://django-base.104.236.104.21.xip.io
+Live demo @ http://tety.104.236.104.21.xip.io
 
 Quickstart
 ----------
