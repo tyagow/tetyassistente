@@ -3,8 +3,8 @@ Tety Assistente
 =============================
 
 
-.. image:: https://travis-ci.org/tyagow/django-base.svg?branch=master
-    :target: https://travis-ci.org/tyagow/django-base
+.. image:: https://travis-ci.org/tyagow/tetyassistente.svg?branch=master
+    :target: https://travis-ci.org/tyagow/tetyassistente
 
 Documentation
 -------------
