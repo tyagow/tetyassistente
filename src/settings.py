@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # app de terceiros
     'crispy_forms',
+    'test_without_migrations',
     'django_extensions',
     'bootstrap3',
     'storages',
@@ -69,8 +70,10 @@ INSTALLED_APPS = [
     'django_celery_results',
 
     # Project apps
-    'src.core',
+
     'src.accounts',
+    'src.core',
+    'src.reports',
 
 ]
 

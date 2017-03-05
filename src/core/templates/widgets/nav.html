@@ -1,86 +1,11 @@
 {% load static %}
 {% load i18n %}
 {% load static %}
-{#<nav id="topNav" class="navbar navbar-default navbar-fixed-top">#}
-{#    <div class="container">#}
-{#        <button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar">#}
-{#            ☰#}
-{#        </button>#}
-{#        <a class="navbar-brand page-scroll" href="#first">Bootstrap 4</a>#}
-{#        <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">#}
-{#            <ul class="nav navbar-nav">#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link page-scroll" href="#one">Cards</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link page-scroll" href="#two">Flexbox</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link page-scroll" href="#three">5 Tiers</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link page-scroll" href="#four">More</a>#}
-{#                </li>#}
-{#            </ul>#}
-{#            <ul class="nav navbar-nav pull-xs-right">#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link page-scroll" data-toggle="modal" title="A free Bootstrap theme" href="#aboutModal">About</a>#}
-{#                </li>#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}
-{#</nav>#}
-{#<nav class="navbar navbar-toggleable-md navbar-light bg-faded">#}
-{#    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">#}
-{#        <span class="navbar-toggler-icon"></span>#}
-{#    </button>#}
-{#    <a class="navbar-brand" href="#">Brand</a>#}
-{#    <div class="collapse navbar-collapse" id="navbarNavDropdown">#}
-{#        <ul class="navbar-nav">#}
-{#            <li class="nav-item active">#}
-{#                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>#}
-{#            </li>#}
-{#            <li class="nav-item"><a class='nav-link' href="#">{% trans 'link' %}</a></li>#}
-{#            <div class="logo-warper"><a class="" href="{% url 'core:home' %}">#}
-{#                LOGO#}
-{#                <img src="{% static 'img/logo.png' %}" alt="" >#}
-{#            </a></div>#}
-{#            <li class="nav-item">#}
-{#                <a class="nav-link" href="#">Features</a>#}
-{#            </li>#}
-{#            <li class="nav-item">#}
-{#                <a class="nav-link" href="#">Pricing</a>#}
-{#            </li>#}
-{#            <li class="nav-item dropdown  mr-auto">#}
-{#                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                    Dropdown link#}
-{#                </a>#}
-{#                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
-{#                    <a class="dropdown-item" href="#">Action</a>#}
-{#                    <a class="dropdown-item" href="#">Another action</a>#}
-{#                    <a class="dropdown-item" href="#">Something else here</a>#}
-{#                </div>#}
-{#            </li>#}
-{#        </ul>#}
-{#        <ul class="navbar-nav mr-auto">#}
-{#            <li class="nav-item dropdown">#}
-{#                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#                    Dropdown link#}
-{#                </a>#}
-{#                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
-{#                    <a class="dropdown-item" href="#">Action</a>#}
-{#                    <a class="dropdown-item" href="#">Another action</a>#}
-{#                    <a class="dropdown-item" href="#">Something else here</a>#}
-{#                </div>#}
-{#            </li>#}
-{#        </ul>#}
-{#    </div>#}
-{#</nav>#}
 <nav    class="navbar navbar-toggleable-md fixed-top  navbar-inverse bg-primary bg-faded">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="{% url 'core:home' %}">Navbar</a>
+    <a class="navbar-brand" href="{% url 'core:home' %}">Tety</a>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
         <ul class="navbar-nav mr-auto">
@@ -88,14 +13,11 @@
                 <a class="nav-link" href="{% url 'core:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'core:home' %}#features">Features</a>
+                <a class="nav-link" href="{% url 'reports:list' %}">Reports</a>
             </li>
             <div class="logo-warper"><a class="" href="{% url 'core:home' %}">
                 <img src="{% static 'img/not_found.gif' %}" alt="" >
             </a></div>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricingg</a>
-            </li>
         </ul>
         <ul class="navbar-nav mr-lg-5 mr-4">
             {% if not request.user.is_authenticated %}

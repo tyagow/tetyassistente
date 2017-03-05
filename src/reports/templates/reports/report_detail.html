@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table class="table">
+        <tr>
+            <td>{{ object.get_type_display}}</td>
+        </tr>
+        <tr>
+            <td>{{ object.content}}</td>
+        </tr>
+
+    </table>
+{% endblock %}

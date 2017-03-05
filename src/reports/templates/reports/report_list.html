@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="space-nav-fixed"></div>
+        <table class="table table-inverse">
+            <thead>
+            <tr>
+                <th>Report</th>
+                <th>Hora</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td>{{ object }}</td>
+                    <td>{{ object.timestamp }}</td>
+                </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
