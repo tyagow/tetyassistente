@@ -50,6 +50,7 @@ SOCIAL_AUTH_LOGIN_ERROR_URL = '/account/settings/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/account/settings/'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30 * 6
 
 # Application definition
 
