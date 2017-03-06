@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% comment %}
+    Variaveis:
+        title = titulo do form
+        button_text = Texto do botar para submeter form
+    Blocks
+        footer_form = Bloco para implementar algum footer na card
+{% endcomment %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% block content %}
+    <section class="cover">
+
+        <div class="container-fluid">
+            <div class="col-md-6 offset-md-3 col-sm-8">
+                <div class="card card-form my-5">
+                    <div class="card-block">
+                        {% if title %}
+                            <h2 class="card-title">{{ title }}</h2>
+                            <hr class="hr-titulo">
+                        {% endif %}
+                        <form method="post">
+                            {% csrf_token %}
+                            {% bootstrap_form form layout="vertical" %}
+                            <div class="footer-form">
+                                <button type="submit" class=" btn btn-grande ">{% if button_text %}{{ button_text }}{% else %}{% trans 'Enviar' %}{% endif %}</button>
+                            </div>
+                        </form>
+                        {% block footer_form %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

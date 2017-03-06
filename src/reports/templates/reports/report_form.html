@@ -1,1 +1,3 @@
-{% include 'widgets/form.html' %}
+{% load i18n %}
+{% trans 'Envia seu report' as title %}
+{% include 'widgets/form_full_page.html' with title=title %}

@@ -19,3 +19,6 @@ class ReportCreateView(CreateView):
     # fields = ['content', 'type', 'timestamp']
     form_class = ReportForm
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(ReportCreateView, self).form_valid(form)
