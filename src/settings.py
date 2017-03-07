@@ -42,8 +42,8 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id,name,email',
 }
 
-LOGIN_URL = 'account/login'
-LOGOUT_URL = 'account/logout'
+LOGIN_URL = '/account/login'
+LOGOUT_URL = '/account/logout'
 LOGIN_REDIRECT_URL = 'core:home'
 
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/account/settings/'

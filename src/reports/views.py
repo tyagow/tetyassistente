@@ -9,6 +9,9 @@ from src.reports.models import Report
 class ReportListView(ListView):
     model = Report
 
+    def get_queryset(self):
+        return self.model.objects.filter(user=self.request.user)
+
 
 class ReportDetailView(DetailView):
     model = Report
