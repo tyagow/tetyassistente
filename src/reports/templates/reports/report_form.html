@@ -1,3 +1,15 @@
+{% load static %}
 {% load i18n %}
-{% trans 'Envia seu report' as title %}
-{% include 'widgets/form_full_page.html' with title=title %}
+{% trans 'Enviar report' as title %}
+{% include 'widgets/form.html' with title=title %}
+{% block script %}
+
+    <link rel="stylesheet" href="{% static 'css/jquery.datetimepicker.css' %}" />
+{##}
+    <script src="{% static 'js/jquery.datetimepicker.js' %}"></script>
+
+    <script>
+{#        $("#id_timestamp").datetimepicker();#}
+$('#id_timestamp').datetimepicker({ format: 'd/m/Y H:i', });
+    </script>
+{% endblock %}

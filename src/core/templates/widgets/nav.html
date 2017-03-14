@@ -1,88 +1,47 @@
-{% load static %}
 {% load i18n %}
 {% load static %}
-<nav    class="navbar navbar-toggleable-md  navbar-inverse bg-primary bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="{% url 'core:home' %}">Tety</a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'core:home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'reports:list' %}">Reports</a>
-            </li>
-            <div class="logo-warper"><a class="" href="{% url 'core:home' %}">
-                <img src="{% static 'img/not_found.gif' %}" alt="" >
-            </a></div>
+<nav id="myNavbar" class="navbar  navbar-fixed-top navbar-inverse" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'img/not_found.gif' %}" alt="" class="nav-logo">
+        </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a class='links' href="{% url 'core:home' %}">{% trans 'Home' %}</a></li>
+            <li><a class='links' href="{% url 'reports:list' %}">{% trans 'Reports' %}</a></li>
         </ul>
-        <ul class="navbar-nav mr-lg-5 mr-4">
+{#        <div class="logo-warper"><a class="" href="/"><img src="{% static 'img/not_found.gif' %}" alt="" ></a></div>#}
+        <ul class="nav navbar-nav navbar-right">
             {% if not request.user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{% url "accounts:login" %}">{% trans 'Entrar' %}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url "accounts:register" %}">{% trans 'Registrar' %}</a></li>
+                <li><a class='links' href="{% url "accounts:login" %}?next={{ request.path }}">{% trans 'Entrar' %}</a></li>
+                <li><a class='links' href="{% url "accounts:register" %}?next={{ request.path }}">{% trans 'Cadastrar' %}</a></li>
             {% else %}
-                <li class="nav-item dropdown ">
-                    <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="navbarDropdownMenuLink" class="dropdown-toggle">{{ request.user }}<b class="caret"></b></a>
-
-                    <ul class="dropdown-menu dropdown-menu-navbar-right bg-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <li class="dropdown-item dropdown-item-nav"><a class="nav-link " href="{% url "accounts:settings" %}">{% trans 'Profile' %}</a></li>
-                        <li class="dropdown-item dropdown-item-nav"><a class="nav-link " href="{% url "accounts:logout" %}?next=/">{% trans 'Sair' %}</a></li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle links">{{ request.user }}<b class="caret"></b></a>
+                    <ul class="dropdown-menu menu-user">
+                        <li><a class='links' href="{% url 'accounts:settings' %}">{% trans 'Perfil' %}</a></li>
+                        <li class="divider"></li>
+                        <li><a class='links' href="{% url 'accounts:logout' %}?next={% if next %}{{ next }}{% else %}{{ request.path }}{% endif %}">{% trans 'Sair' %}</a></li>
                     </ul>
                 </li>
             {% endif %}
-
         </ul>
-    </div>
+    </div><!-- /.navbar-collapse -->
 </nav>
-{#<div class="space-nav-fixed"></div>#}
-{##}
-{#<nav id="myNavbar" class="navbar navbar-default fixed-top" role="navigation">#}
-{#    <!-- Brand and toggle get grouped for better mobile display -->#}
-{#    <div class="navbar-header">#}
-{#        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">#}
-{#            <span class="sr-only">Toggle navigation</span>#}
-{#            <span class="icon-bar"></span>#}
-{#            <span class="icon-bar"></span>#}
-{#            <span class="icon-bar"></span>#}
-{#        </button>#}
-{#        <a class="navbar-brand" href="{% url 'core:home' %}">#}
-{#            LOGO - small#}
-{#            <img src="{% static 'img/logo-small.png' %}" alt="" class="">#}
-{#        </a>#}
-{#    </div>#}
-{#    <!-- Collect the nav links, forms, and other content for toggling -->#}
-{#    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
-{#        <ul class="nav navbar-nav">#}
-{#            <li><a class='links' href="#">{% trans 'link' %}</a></li>#}
-{#        </ul>#}
-{#        <div class="logo-warper"><a class="links" href="{% url 'core:home' %}">#}
-{#            LOGO#}
-{#            <img src="{% static 'img/logo.png' %}" alt="" >#}
-{#        </a></div>#}
-{#        <ul class="nav navbar-nav navbar-right">#}
-{#            {% if not request.user.is_authenticated %}#}
-{#                <li class="pull-right"><a class="links" href="{% url "accounts:login" %}">{% trans 'Entrar' %}</a></li>#}
-{#                <li class="pull-right"><a class="links" href="{% url "accounts:register" %}">{% trans 'Registrar' %}</a></li>#}
-{#            {% else %}#}
-{#                <li class="dropdown pull-right">#}
-{#                    <a href="#" data-toggle="dropdown" class="dropdown-toggle links">{{ request.user }}<b class="caret"></b></a>#}
-{#                    <ul class="dropdown-menu menu-user">#}
-{#                        <li><a class="links" href="{% url "accounts:settings" %}">{% trans 'Profile' %}</a></li>#}
-{#                        <li class="divider"></li>#}
-{#                        <li><a class="links" href="{% url "accounts:logout" %}?next=/">{% trans 'Sair' %}</a></li>#}
-{#                    </ul>#}
-{#                </li>#}
-{#            {% endif %}#}
-{#        </ul>#}
-{#    </div><!-- /.navbar-collapse -->#}
-{#</nav>#}
 {#<div class="container-fluid">#}
 {#    <div class="row">#}
-{#        <div class="col-sm-2 offset-sm-10 language-row">#}
-{#            <form action="{% url "set_language" %}" method="post">#}
+{#        <div class="col-sm-2 col-sm-offset-10 language-row">#}
+{##}
+{#            <form action="{% url 'set_language' %}" method="post">#}
 {#                {% csrf_token %}#}
 {#                <input name="next" type="hidden" value="{{ request.get_full_path }}" />#}
 {#                <input name="language" type="hidden" value="pt" />#}
@@ -91,31 +50,5 @@
 {#        </div>#}
 {#    </div>#}
 {#</div>#}
-
-{#<div class="container">#}
-{#    <ol class="breadcrumb">#}
-{#        <li><a href="{% url "home" %}">Home</a></li>#}
-{#        <li>{{ request.path }}</li>#}
-{#        <li>{{ request.LANGUAGE_CODE }}</li>#}
-{#        {% if not request.user.is_authenticated %}#}
-{#            <li class="pull-right"><a href="{% url "accounts:login" %}">Entrar</a></li>#}
-{#            <li class="pull-right"><a href="{% url "accounts:register" %}">Registrar</a></li>#}
-{#        {% else %}#}
-{#            <li class="dropdown pull-right">#}
-{#                <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ request.user }}<b class="caret"></b></a>#}
-{#                <ul class="dropdown-menu">#}
-{#                    <li><a href="{% url "accounts:settings" %}">Profile</a></li>#}
-{#                    <li class="divider"></li>#}
-{#                    <li><a href="{% url "accounts:logout" %}?next=/">Logout</a></li>#}
-{#                </ul>#}
-{#            </li>#}
-{#        {% endif %}#}
-{##}
-{#    </ol>#}
-{#    <form action="{% url 'set_language' %}" method="post">#}
-{#        {% csrf_token %}#}
-{#        <input name="next" type="hidden" value="{{ request.get_full_path }}" />#}
-{#        <input name="language" type="hidden" value="pt" />#}
-{#        <input  style="background: url({% static 'img/brasil-flag.png' %}); background-size: 32px 22px" class="input-flag" type="submit" value="" />#}
-{#    </form>#}
-{#</div>#}
+{#        {% get_current_language as LANGUAGE_CODE %}#}
+{#        {{ LANGUAGE_CODE }}#}

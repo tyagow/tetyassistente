@@ -31,6 +31,12 @@
     top: 55px;
     z-index: 9999;
 }
+.navbar-brand {
+    padding: 0px!important;
+}
+.nav-logo {
+    height: 100%;
+}
 /*.navbar-fixed-top {*/
     /*background-color: var(--nav-bg) !important;*/
 /*}*/
