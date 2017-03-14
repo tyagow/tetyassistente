@@ -69,7 +69,6 @@ INSTALLED_APPS = [
     'storages',
     'django_celery_beat',
     'django_celery_results',
-    'bootstrap3_datetime',
 
     # Project apps
 
