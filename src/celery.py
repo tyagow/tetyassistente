@@ -9,6 +9,9 @@ from django.conf import settings
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src.settings')
 
+import django
+django.setup()
+
 app = Celery('tety')
 
 # Using a string here means the worker don't have to serialize
