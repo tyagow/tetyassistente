@@ -107,6 +107,9 @@
 .btn-circle {
     border-radius: 50%;
 }
+.btn-full {
+    min-width: 100%;
+}
 .btn-add-report:hover {
     text-decoration: none !important;
     color: #000;

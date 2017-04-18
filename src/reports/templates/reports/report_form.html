@@ -1,15 +1,67 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-{% trans 'Enviar report' as title %}
-{% include 'widgets/form.html' with title=title %}
+{% load bootstrap3 %}
+{% block content %}
+    {#    {% trans 'Enviar report' as title %}#}
+    <section class="section-single">
+        <div class="container">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="card-basic card-form my-5">
+                    <div class="card-block">
+                        {#                        {% if title %}#}
+                        {#                            <h2 class="card-title">{{ title }}</h2>#}
+                        {#                        {% endif %}#}
+                        <h3>Escolha o tipo de report</h3>
+                        <hr class="hr-titulo">
+                        <div class="col-xs-5 my-2">
+                            <button id="alimentacao" class="btn btn-full btn-primary">Alimentação</button>
+                        </div>
+                        <div class="col-xs-7 my-2">
+                            <button id="sentindo" class="btn btn-full btn-danger">Como estou me sentindo ?</button>
+                        </div>
+                        <div class="col-xs-12">
+                            <hr class="hr-titulo">
+                        </div>
+                        <form method="post">
+                            {% csrf_token %}
+                            {% bootstrap_form form layout="vertical" %}
+                            <div class="footer-form">
+                                <button type="submit" class=" btn btn-grande ">{% if button_text %}{{ button_text }}{% else %}{% trans 'Enviar' %}{% endif %}</button>
+                            </div>
+                        </form>
+                        {% block footer_form %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
 {% block script %}
 
     <link rel="stylesheet" href="{% static 'css/jquery.datetimepicker.css' %}" />
-{##}
+    {##}
     <script src="{% static 'js/jquery.datetimepicker.js' %}"></script>
 
     <script>
-{#        $("#id_timestamp").datetimepicker();#}
-$('#id_timestamp').datetimepicker({ format: 'd/m/Y H:i', });
+        {#        $("#id_timestamp").datetimepicker();#}
+        $('#id_timestamp').datetimepicker({ format: 'd/m/Y H:i' });
+        $('#alimentacao').click(function () {
+            var rgbaCol = 'rgba(0,200,255,'+'0.1)';
+            $('.card-form').css('background-color', rgbaCol);
+
+            $('#id_type').val('1');
+            $('#alimentacao').addClass('active');
+            $('#sentindo').removeClass('active');
+
+        });
+
+        $('#sentindo').click(function () {
+            $('#id_type').val('2');
+            var rgbaCol = 'rgba(200,120,120,'+'0.1)';
+            $('.card-form').css('background-color', rgbaCol);
+            $('#sentindo').addClass('active');
+            $('#alimentacao').removeClass('active');
+        });
     </script>
 {% endblock %}
