@@ -112,17 +112,18 @@
 }
 .btn-add-report:hover {
     text-decoration: none !important;
-    color: #000;
-    background-color: rgb(241, 7, 7);
+    background-color: rgba(241, 7, 7, 0.1);
 }
 .btn-add-report {
-
-    padding: 10px 15px;
+    padding: 12px 20px;
     font-size: 20px;
-    width: 40px;
-    height: 20px;
-    color: #fff;
-    background-color: rgb(234, 7, 7);
+    width: 45px;
+    height: 30px;
+    color: rgba(0,0,0,0);
+    background-image: url(../icons/add-report.png);
+    background-size: cover;
+    background-color: #f1f1f1;
+    /*background-color: rgb(234, 7, 7);*/
 }
 /* Form */
 .footer-form {
