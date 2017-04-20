@@ -1,7 +1,6 @@
-
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 
 
 def home(request):
-    return render(request, 'core/index.html')
+    return redirect('reports:list')
 

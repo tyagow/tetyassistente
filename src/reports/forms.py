@@ -15,7 +15,7 @@ class ReportForm(forms.ModelForm):
 
     class Meta:
         model = Report
-        fields = ['type', 'content', 'timestamp']
+        fields = ['type', 'timestamp', 'content']
         # labels = {
         #     'type': _('Tipos de report'),
         # }
