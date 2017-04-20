@@ -11,3 +11,5 @@ media/
 htmlcov
 .coveragerc
 dump.rdb
+/deploy_utils/deploy_key
+/deploy_utils/.env

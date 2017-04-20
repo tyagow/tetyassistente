@@ -4,3 +4,14 @@ machine:
 dependencies:
   pre:
   - cp contrib/env-sample .env
+test:
+  override:
+    - coverage run manage.py test
+  post:
+    - coverage html -d $CIRCLE_ARTIFACTS
+deployment:
+  production:
+    branch: master
+    commands:
+      - git remote add deploy dokku@104.236.104.21:django-base
+      - git push deploy master
