@@ -6,7 +6,7 @@ dependencies:
   - cp contrib/env-sample .env
 test:
   override:
-    - coverage run manage.py test
+    - coverage run manage.py test --fail-under 83
   post:
     - coverage html -d $CIRCLE_ARTIFACTS
 deployment:

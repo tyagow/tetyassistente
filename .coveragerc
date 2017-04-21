@@ -23,5 +23,6 @@ omit =
     src/*/migrations/*
     src/*/apps.py
     src/wsgi.py
-
+    src/middlewares/force_default_language.py
+    src/celery.py
 show_missing = True
