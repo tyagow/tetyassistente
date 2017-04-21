@@ -8,10 +8,5 @@ class HomeTest(TestCase):
     def setUp(self):
         self.response = self.client.get(r('core:home'))
 
-    def test_get(self):
+    def test_get_redirects(self):
         self.assertEqual(302, self.response.status_code)
-
-    @skip
-    def test_template(self):
-        """Must use core/index.html"""
-        self.assertTemplateUsed(self.response, 'core/index.html')
