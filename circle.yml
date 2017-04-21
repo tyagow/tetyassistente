@@ -8,7 +8,7 @@ test:
   override:
     - coverage run manage.py test
   post:
-    - coverage html -d $CIRCLE_ARTIFACTS --fail-under 83
+    - coverage html -d $CIRCLE_ARTIFACTS --fail-under 82
 deployment:
   production:
     branch: master
