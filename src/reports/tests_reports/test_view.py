@@ -16,8 +16,8 @@ class ReportListViewTest(TestBase):
     def setUp(self):
         user = User.objects.create_user(username='tety', password='123456')
         user_lost = User.objects.create_user(username='lost', password='123456')
-        Report.objects.create(type=1, user=user, content='Conteudo User user')
-        Report.objects.create(type=1, user=user_lost, content='Conteudo User lost')
+        self.report = Report.objects.create(user=user, content='Conteudo User user')
+        Report.objects.create(user=user_lost, content='Conteudo User lost')
         self.client.login(username='tety', password='123456')
         self.response = self.client.get(r('reports:list'))
 
@@ -30,7 +30,7 @@ class ReportListViewTest(TestBase):
 
     def test_list_objects_display_only_from_user(self):
         """Must show all Report Objects from the request.user"""
-        expected = ['Alimentação - Conteudo User user']
+        expected = ['Como estou me sentido? - Conteudo User user']
         self.assertContents(expected)
         self.assertNotContains(self.response, 'Conteudo User lost')
 
