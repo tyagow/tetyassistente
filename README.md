@@ -73,3 +73,12 @@ Community plugin commands:
     redis      Plugin for managing Redis services
 
 
+
+TODO
+-----
+
+* [ ] In report List - Each row has respective color as the type of the report 
+* [ ] In report List - Table with reports must have type column 
+* [ ] In Report Form - Align title center
+* [ ] Report type FEELING  must have some kind score and/or thumbs up/down
+* [ ] Report time possible timezone divergence - must use Local timezone
