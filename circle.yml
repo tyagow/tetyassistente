@@ -1,14 +1,18 @@
 machine:
   python:
-    version: 3.5.2
+    version: 3.6.1
 dependencies:
   pre:
   - cp contrib/env-sample .env
+  - pip install coverage
+  - pip install coveralls
 test:
   override:
     - coverage run manage.py test
   post:
-    - coverage html -d $CIRCLE_ARTIFACTS --fail-under 82
+    - coverage html -d $CIRCLE_ARTIFACTS --fail-under 80
+    - coveralls
+
 deployment:
   production:
     branch: master
