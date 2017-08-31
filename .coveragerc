@@ -22,7 +22,12 @@ omit =
     src/settings.py
     src/*/migrations/*
     src/*/apps.py
+    src/functional_tests/*
+    src/accounts/*
+    *tests*
+    src/testutils/*
+    */__init__.py
+    src/middlewares/*
     src/wsgi.py
-    src/middlewares/force_default_language.py
-    src/celery.py
+
 show_missing = True
