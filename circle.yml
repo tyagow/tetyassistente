@@ -17,5 +17,6 @@ deployment:
   production:
     branch: master
     commands:
+      - python manage.py collectstatic --noinput
       - git remote add deploy dokku@104.236.104.21:tety
       - git push deploy master
