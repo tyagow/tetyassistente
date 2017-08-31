@@ -15,4 +15,3 @@ django-crispy-forms
 django-extensions
 django-test-without-migrations
 factory_boy
-coverage
