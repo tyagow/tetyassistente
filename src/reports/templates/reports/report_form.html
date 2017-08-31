@@ -6,7 +6,7 @@
     {#    {% trans 'Enviar report' as title %}#}
     <section class="section-single">
         <div class="container">
-            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
                 <div class="card-basic card-form my-5">
                     <div class="card-block">
                         {#                        {% if title %}#}
@@ -14,10 +14,10 @@
                         {#                        {% endif %}#}
                         <h3>Escolha o tipo de report</h3>
                         <hr class="hr-titulo">
-                        <div class="col-xs-5 my-2">
+                        <div class="col-md-5 col-sm-12 my-2">
                             <button id="alimentacao" class="btn btn-full btn-primary">Alimentação</button>
                         </div>
-                        <div class="col-xs-7 my-2">
+                        <div class="col-md-7 col-sm-12 my-2">
                             <button id="sentindo" class="btn btn-full btn-danger">Como estou me sentindo ?</button>
                         </div>
                         <div class="col-xs-12">
@@ -44,6 +44,13 @@
     <script src="{% static 'js/jquery.datetimepicker.js' %}"></script>
 
     <script>
+        $( document  ).ready(function() {
+            $('#id_type').val('2');
+            var rgbaCol = 'rgba(200,120,120,'+'0.1)';
+            $('.card-form').css('background-color', rgbaCol);
+            $('#sentindo').addClass('active');
+            $('#alimentacao').removeClass('active');
+        });
         {#        $("#id_timestamp").datetimepicker();#}
         $('#id_timestamp').datetimepicker({ format: 'd/m/Y H:i' });
         $('#alimentacao').click(function () {
