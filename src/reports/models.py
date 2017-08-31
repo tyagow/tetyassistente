@@ -18,7 +18,7 @@ FEELING = 1
 class Report(models.Model):
     timestamp = models.DateTimeField(_('Criado'), default=(timezone.now()-datetime.timedelta(hours=3)))
     content = models.TextField(_('Conteúdo'),  null=False, blank=False)
-    type = models.IntegerField(choices=REPORT_TYPES, null=False, blank=False)
+    type = models.IntegerField(choices=REPORT_TYPES, default=FEELING, null=False, blank=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='reports')
 
     def __str__(self):

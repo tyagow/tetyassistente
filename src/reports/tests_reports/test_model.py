@@ -52,3 +52,7 @@ class ReportModelTest(TestCase):
     def test_has_user_related(self):
         user = User.objects.first()
         self.assertEqual(self.report.user, user)
+
+    def test_report_type_default_is_FELLING(self):
+        field = Report._meta.get_field('type')
+        self.assertEqual(field.default, FEELING)
