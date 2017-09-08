@@ -83,6 +83,6 @@ TODO
 * [x] Report type FEELING  must have some kind score and/or thumbs up/down
 * [ ] Report time possible timezone divergence - must use Local timezone
 * [ ] Change Main Title
-* [ ] Make Report has sentiment section
+* [ ] Make Report Create View has sentiment section
 * [ ] 
 * [ ] 
