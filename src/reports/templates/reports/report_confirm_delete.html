@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+    <form action="" method = "post">
+        {% csrf_token %}
+                <h3 class = ''>
+                    Voce tem certeza que deseja deletar este report: "{{ object }}"?
+                </h3>
+                <input class='btn btn-danger' type ='submit' value='Sim'/>
+                <a class='btn' href ='{{ next }}'>Cancelar</a>
+    </form>
+    </div>
+{% endblock %}

@@ -16,11 +16,8 @@ class ReportForm(forms.ModelForm):
         input_formats=[TIMESTAMP_FORMAT],
         initial=(timezone.now()-datetime.timedelta(hours=3)).strftime(TIMESTAMP_FORMAT),
     )
-    type = forms.ChoiceField(label=_('Tipo de report'), choices=REPORT_TYPES, initial=1, widget=forms.HiddenInput())
+    type = forms.ChoiceField(label=_('Tipo de report'), choices=REPORT_TYPES, initial=0, widget=forms.HiddenInput())
 
     class Meta:
         model = Report
         fields = ['type', 'timestamp', 'content']
-        # labels = {
-        #     'type': _('Tipos de report'),
-        # }

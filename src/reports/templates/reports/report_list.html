@@ -19,7 +19,10 @@
                     <tr>
                         <td><a href="{{ object.get_absolute_url }}">{{ object }}</a></td>
                         <td>{{ object.timestamp.day }} - {{ object.timestamp.month }} @ {{ object.timestamp.time }}</td>
-                        <td></td>
+                        <td>
+                            <a href="{% url 'reports:update' pk=object.id %}?next={% url 'reports:list' %}">editar</a> |
+                            <a href="{% url 'reports:delete' pk=object.id %}?next={% url 'reports:list' %}">remover</a>
+                        </td>
                     </tr>
 
                 {% endfor %}
