@@ -4,10 +4,6 @@ psycopg2
 django-bootstrap3
 boto
 django-storages
-django-celery-beat==1.0.1
-django-celery-results==1.0.1
-redis==2.10.5
-celery==4.0.2
 dj-database-url
 dj-static
 Django

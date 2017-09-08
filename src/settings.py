@@ -67,8 +67,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'bootstrap3',
     'storages',
-    'django_celery_beat',
-    'django_celery_results',
 
     # Project apps
 
