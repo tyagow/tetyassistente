@@ -1,6 +1,7 @@
 # Tety Assistente
 
-[![CircleCI](https://circleci.com/gh/tyagow/tetyassistente.svg?style=svg)](https://circleci.com/gh/tyagow/tetyassistente) [![Coverage Status](https://coveralls.io/repos/github/tyagow/tetyassistente/badge.svg?branch=master)](https://coveralls.io/github/tyagow/tetyassistente?branch=master)
+[![CircleCI](https://circleci.com/gh/tyagow/tetyassistente.svg?style=svg)](https://circleci.com/gh/tyagow/tetyassistente) [![Coverage Status](https://coveralls.io/repos/github/tyagow/tetyassistente/badge.svg?branch=master)](https://coveralls.io/github/tyagow/tetyassistente?branch=master) [![Code Health](https://landscape.io/github/tyagow/tetyassistente/master/landscape.svg?style=flat)](https://landscape.io/github/tyagow/tetyassistente/master)
+
 
 
 
