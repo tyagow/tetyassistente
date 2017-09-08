@@ -11,13 +11,15 @@
                 <tr>
                     <th>Report</th>
                     <th>Hora</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody class="bg-alt">
                 {% for object in object_list %}
                     <tr>
-                        <td>{{ object }}</td>
+                        <td><a href="{{ object.get_absolute_url }}">{{ object }}</a></td>
                         <td>{{ object.timestamp.day }} - {{ object.timestamp.month }} @ {{ object.timestamp.time }}</td>
+                        <td></td>
                     </tr>
 
                 {% endfor %}

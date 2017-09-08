@@ -45,7 +45,7 @@
 
     <script>
         $( document  ).ready(function() {
-            $('#id_type').val('2');
+            $('#id_type').val('1');
             var rgbaCol = 'rgba(200,120,120,'+'0.1)';
             $('.card-form').css('background-color', rgbaCol);
             $('#sentindo').addClass('active');
@@ -57,14 +57,14 @@
             var rgbaCol = 'rgba(0,200,255,'+'0.1)';
             $('.card-form').css('background-color', rgbaCol);
 
-            $('#id_type').val('1');
+            $('#id_type').val('0');
             $('#alimentacao').addClass('active');
             $('#sentindo').removeClass('active');
 
         });
 
         $('#sentindo').click(function () {
-            $('#id_type').val('2');
+            $('#id_type').val('1');
             var rgbaCol = 'rgba(200,120,120,'+'0.1)';
             $('.card-form').css('background-color', rgbaCol);
             $('#sentindo').addClass('active');
